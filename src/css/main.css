@@ -1,0 +1,9 @@
+#twitch-box {
+    width: 20vh;
+}
+.stream {
+    padding-top:20px;
+}
+.stream>h4 {
+    margin-bottom:5px;
+}
