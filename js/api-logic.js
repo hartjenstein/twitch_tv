@@ -114,21 +114,26 @@ let currentURL = 'https://api.twitch.tv/kraken/streams/freecodecamp?client_id=qo
 
       for (let item of response) {
         if(item.error){
-            
-            $('#twitch-box').append('<div> Stream is ' + item.error + ' </div>')
+            $('#twitch-box').append('<div class="stream col-12"> Stream is ' + item.error + ' </div>')
          //   $('#twitch-box').append('<div> Channel Url: ' + item._links.channel + ' </div>')
         } else {
 
             let streamStatus = 'is Offline'
             if(item.stream != null) {
+            var url = item.stream.url
+            var logo = '<img width="25px" height="25px" src="'+item.stream.logo+'">';
             streamStatus = item.stream.status
-        }
+          } else {
+            url ="";
+          }
+            
             let name = item.display_name || item.stream.display_name
-            let stream = $('#twitch-box');
+            let twitchBox = $('#twitch-box');
+            //let url = item._links.channel+'?client_id=qouikphyp4xaq96l1lg8160opdn82l'
             console.log(item.stream)
-            stream.append('<div class="stream"><h4> Name: ' + name + '</h4> </div>')
-            .append('<div >Stream: ' + streamStatus + '  </div>')
-            .append('<div> Channel Url: ' + item._links.channel + ' </div>')
+            let stream = '<div class="stream col-12"><h4><a href="'+ url + '" target="_blank"> ' + logo + name + '</h4></a><p> Stream: ' + streamStatus + '</p> </div>'
+            twitchBox.append(stream);
+            
         }   
     }
     }, function(error) {

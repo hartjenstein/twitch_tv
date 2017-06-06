@@ -1,9 +1,35 @@
+body#main {
+    background: grey;
+    padding:0px;
+    margin:0px;
+}
+
 #twitch-box {
-    width: 20vh;
+    background: lightgrey;
 }
 .stream {
-    padding-top:20px;
+    margin: 5px 5px 5px 5px;
+    border-style: solid;
+    border-color: cadetblue;
+    color: cadetblue;
+    padding: 15px 0px 15px 15px;
+    background: black;
+    min-height: 15vh;
 }
 .stream>h4 {
     margin-bottom:5px;
+    font-size: 1.7em;
+}
+h1#headline {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 2em;
+    color: cadetblue;
+    color: black;
+}
+img {
+    margin-right: 10px;
+}
+p {
+    display:inline;
+    padding: 0px;
 }
