@@ -15,6 +15,8 @@ body#main {
     padding: 15px 0px 15px 15px;
     background: black;
     min-height: 15vh;
+    transition: all .2s ease-in-out; 
+    border-radius: 25px;
 }
 .stream>h4 {
     margin-bottom:5px;
@@ -30,7 +32,14 @@ h1#headline {
 img {
     margin-right: 10px;
 }
-p {
-    display:inline;
-    padding: 0px;
+
+a {
+    padding: 3% 70% 9% 1%;
+    margin: 0px;
+}
+
+.stream:hover {
+    border: 3px solid orangered;
+     transform: scale(1.1);
+    /*color: orangered;*/
 }
