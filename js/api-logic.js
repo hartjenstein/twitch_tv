@@ -1,6 +1,6 @@
 "use strict";
 
-let currentURL = 'https://api.twitch.tv/kraken/streams/freecodecamp?client_id=qouikphyp4xaq96l1lg8160opdn82l'
+const currentURL = 'https://api.twitch.tv/kraken/streams/freecodecamp?client_id=qouikphyp4xaq96l1lg8160opdn82l'
 
  get(currentURL).then(function(response) {
 
@@ -114,7 +114,7 @@ let currentURL = 'https://api.twitch.tv/kraken/streams/freecodecamp?client_id=qo
 
       for (let item of response) {
         if(item.error){
-            $('#twitch-box').append('<div class="stream col-12"> Stream is ' + item.error + ' </div>');
+            $('#twitch-box').append('<div class="stream col-12"> <h4> Stream is ' + item.error + ' </h4> <p>' + item.message +  '</p></div>');
         } else {
             // --- set stream status and generate error message divs ----
             let streamStatus = 'is Offline'
@@ -123,7 +123,7 @@ let currentURL = 'https://api.twitch.tv/kraken/streams/freecodecamp?client_id=qo
             var logo = '<img width="25px" height="25px" src="'+item.stream.logo+'">';
             streamStatus = item.stream.status
           } else {
-            url ="";
+            url = "";
           }
           generateStreamDivs(item, url, logo, streamStatus);  
           
@@ -141,7 +141,7 @@ let currentURL = 'https://api.twitch.tv/kraken/streams/freecodecamp?client_id=qo
   function get(url) {
   return new Promise(function(resolve, reject) {
     
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     xhr.open('GET', url);
 
     xhr.onload = function() {
@@ -167,7 +167,7 @@ let currentURL = 'https://api.twitch.tv/kraken/streams/freecodecamp?client_id=qo
   });
 }
 function toggleLogo() {
-let stream = document.querySelector('.stream');
+  const stream = document.querySelector('.stream');
     stream.addEventListener('mouseenter', logoEffect);
     stream.addEventListener('mouseleave', logoEffect);
     function logoEffect(){
@@ -176,8 +176,8 @@ let stream = document.querySelector('.stream');
 }
 
 function generateStreamDivs(item, url, logo, streamStatus){
-  let name = item.display_name || item.stream.display_name
+  const name = item.display_name || item.stream.display_name
             let twitchBox = $('#twitch-box');
-            let stream = '<div class="stream col-12"><h4><a href="'+ url + '" target="_blank"> ' + logo + name + '</h4></a><p> Stream: ' + streamStatus + '</p> </div>';
+            let stream = '<div class="stream col-12"><a href="'+ url + '" target="_blank"> <h4>' + logo + name + '</h4><p> Stream: ' + streamStatus + '</p></a> </div>';
             twitchBox.append(stream);  
 }

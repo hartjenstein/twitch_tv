@@ -1,18 +1,17 @@
 body#main {
-    background: grey;
+    background: black;
     padding:0px;
     margin:0px;
 }
 
 #twitch-box {
-    background: lightgrey;
+    background: #eaf2ff;
 }
 .stream {
     margin: 5px 5px 5px 5px;
     border-style: solid;
     border-color: cadetblue;
-    color: cadetblue;
-    padding: 15px 0px 15px 15px;
+    padding: 15px 15px 15px 15px;
     background: black;
     min-height: 15vh;
     transition: all .2s ease-in-out; 
@@ -21,7 +20,13 @@ body#main {
 .stream>h4 {
     margin-bottom:5px;
     font-size: 1.7em;
+     color: cadetblue;
 }
+.stream p {
+    padding-top: 2px;
+    color: turquoise;
+}
+
 h1#headline {
     font-family: 'Modak', cursive;
     font-size: 3.5em;
@@ -34,8 +39,12 @@ img {
 }
 
 a {
-    padding: 3% 70% 9% 1%;
-    margin: 0px;
+    padding: 0px;
+}
+
+div a p {
+    padding: 3% 0% 5% 1%;
+    margin-bottom: 0px;
 }
 
 .stream:hover {
